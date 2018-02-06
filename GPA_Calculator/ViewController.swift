@@ -5,6 +5,7 @@
 //  Created by Joseph Hoang on 2/3/18.
 //  Copyright © 2018 Joe Hoang. All rights reserved.
 //
+//this application allows users to input scores for a specific class and the calculator outputs gpa based on these scores.
 
 import UIKit
 
@@ -23,6 +24,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var percentFinal: UITextField!
     @IBOutlet weak var numberOfCredits: UITextField!
     @IBOutlet weak var deleteCourseNumber: UITextField!
+    @IBOutlet weak var firstCourse: UILabel!
+    @IBOutlet weak var secondCourse: UILabel!
+    @IBOutlet weak var thirdCourse: UILabel!
+    @IBOutlet weak var fourthCourse: UILabel!
+    @IBOutlet weak var gpaLabel: UILabel!
     
     struct GradeWithWeight {
         var courseTitle: String?
@@ -90,22 +96,15 @@ class ViewController: UIViewController {
                 print("Invalid inputs in credits row")
             }
             
-            if ((finalAssignmentScore + finalMidtermScore + finalFinalScore) > 90){
-                grade = 4
-            } else if ((finalAssignmentScore + finalMidtermScore + finalFinalScore) < 90 && (finalAssignmentScore + finalMidtermScore + finalFinalScore)>=80){
-                grade = 3
-            } else if ((finalAssignmentScore + finalMidtermScore + finalFinalScore) < 80 && (finalAssignmentScore + finalMidtermScore + finalFinalScore)>=70){
-                grade = 2
-            } else if ((finalAssignmentScore + finalMidtermScore + finalFinalScore) < 70 && (finalAssignmentScore + finalMidtermScore + finalFinalScore)>=60){
-                grade = 1
-            } else {
-                grade = 0
-            }
+            grade = gradeCheck(finalAssignmentScore, finalMidtermScore, finalFinalScore)
             
-            let thisGradeAndWeight = GradeWithWeight(courseTitle: courseName, grades: grade, weights: credit)
-            gradeAndWeightStorage.append(thisGradeAndWeight)
+            let thisGradeAndWeight = GradeWithWeight(courseTitle: courseName, grades: grade, weights: credit) //create a new struct
+            
+            gradeAndWeightStorage.append(thisGradeAndWeight) //add course into array
             gpa = gpaCalculation(gradeAndWeightStorage)
-            print(gpa)
+            
+            printClassAndGrade(gradeAndWeightStorage)
+            gpaLabel.text = String(gpa)
             
         } else {
             print("Invalid Percentages")
@@ -115,7 +114,53 @@ class ViewController: UIViewController {
 //        }
     }
     
+    //prints what is on the chalkboard
+    func printClassAndGrade (_ array: [GradeWithWeight]) {
+        var letterGrade: String
+        var count = 0
+        for item in array {
+            count = count + 1
+            if item.grades == 4.0 {
+                letterGrade = "A"
+            } else if item.grades == 3.0 {
+                letterGrade = "B"
+            } else if item.grades == 2.0 {
+                letterGrade = "C"
+            } else if item.grades == 1.0 {
+                letterGrade = "D"
+            } else {
+                letterGrade = "F"
+            }
+            
+            if count == 1{
+                firstCourse.text = (String(count) + ") " + item.courseTitle! + " | " + String(Int(item.weights)) + " " + letterGrade)
+            } else if count == 2 {
+                secondCourse.text = (String(count) + ") " + item.courseTitle! + " | " + String(Int(item.weights)) + " " + letterGrade)
+            } else if count == 3 {
+                thirdCourse.text = (String(count) + ") " + item.courseTitle! + " | " + String(Int(item.weights)) + " " + letterGrade)
+            } else if count == 4 {
+                fourthCourse.text = (String(count) + ") " + item.courseTitle! + " | " + String(Int(item.weights)) + " " + letterGrade)
+            }
+            print(item.courseTitle! + "|" + String(Int(item.weights)) + " " + letterGrade)
+        }
+    }
     
+    //checks for Value of final grade
+    func gradeCheck(_ firstScore: Double,_ secondScore: Double,_ thirdScore: Double) -> Double{
+        if ((firstScore + secondScore + thirdScore) > 90){
+            return 4
+        } else if ((firstScore + secondScore + thirdScore) < 90 && (firstScore + secondScore + thirdScore)>=80){
+            return 3
+        } else if ((firstScore + secondScore + thirdScore) < 80 && (firstScore + secondScore + thirdScore)>=70){
+            return 2
+        } else if ((firstScore + secondScore + thirdScore) < 70 && (firstScore + secondScore + thirdScore)>=60){
+            return 1
+        } else {
+            return 0
+        }
+    }
+    
+    //calculates gpa
     func gpaCalculation(_ array: [GradeWithWeight]) -> Double {
         var credit: Double = 0
         var grade: Double = 0
@@ -134,7 +179,6 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
 }
 
