@@ -39,6 +39,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func AddCourseCalc(_ sender: UIButton) {
+        var totalPercent: Double = 0
         var finalAssignmentScore: Double = 0
         var finalMidtermScore: Double = 0
         var finalFinalScore: Double = 0
@@ -46,60 +47,74 @@ class ViewController: UIViewController {
         var grade: Double = 0
         var gpa: Double = 0
         let courseName = titleOfCourse.text
-        
+
+        //check for all bubbles to be filled Assign
         if let pointsAssign = Double(assignmentPoint.text!),
             let maxAssign = Double(maxScoreAssignments.text!),
             let percentAssign = Double(percentAssignments.text!){
             finalAssignmentScore = pointsAssign / maxAssign * percentAssign
+            totalPercent = totalPercent + percentAssign
         } else {
             print("Invalid inputs in assingments row")
+            return
         }
         
+        //check for all bubbles to be filled Midterm
         if let pointsMidterm = Double(midtermPoint.text!),
             let maxMidterm = Double(maxScoreMidterm.text!),
             let percentMidterm = Double(percentMidterm.text!){
             finalMidtermScore = pointsMidterm / maxMidterm * percentMidterm
+            totalPercent = totalPercent + percentMidterm
         } else {
             print("Invalid inputs in midterm row")
+            return
         }
         
+        //check for all bubbles to be filled Final
         if let pointsFinal = Double(finalPoint.text!),
             let maxFinal = Double(maxScoreFinal.text!),
             let percentFinal = Double(percentFinal.text!){
             finalFinalScore = pointsFinal / maxFinal * percentFinal
+            totalPercent = totalPercent + percentFinal
         } else {
             print("Invalid inputs in final row")
+            return
         }
         
-        if let credits = Double(numberOfCredits.text!){
-            credit = credits
+        // if total percent = 100 proceed else error
+        if totalPercent == 100 {
+            
+            if let credits = Double(numberOfCredits.text!){
+                credit = credits
+            } else {
+                print("Invalid inputs in credits row")
+            }
+            
+            if ((finalAssignmentScore + finalMidtermScore + finalFinalScore) > 90){
+                grade = 4
+            } else if ((finalAssignmentScore + finalMidtermScore + finalFinalScore) < 90 && (finalAssignmentScore + finalMidtermScore + finalFinalScore)>=80){
+                grade = 3
+            } else if ((finalAssignmentScore + finalMidtermScore + finalFinalScore) < 80 && (finalAssignmentScore + finalMidtermScore + finalFinalScore)>=70){
+                grade = 2
+            } else if ((finalAssignmentScore + finalMidtermScore + finalFinalScore) < 70 && (finalAssignmentScore + finalMidtermScore + finalFinalScore)>=60){
+                grade = 1
+            } else {
+                grade = 0
+            }
+            
+            let thisGradeAndWeight = GradeWithWeight(courseTitle: courseName, grades: grade, weights: credit)
+            gradeAndWeightStorage.append(thisGradeAndWeight)
+            gpa = gpaCalculation(gradeAndWeightStorage)
+            print(gpa)
+            
         } else {
-            print("Invalid inputs in credits row")
+            print("Invalid Percentages")
+            return
         }
-        
-        if ((finalAssignmentScore + finalMidtermScore + finalFinalScore) > 90){
-            grade = 4
-        } else if ((finalAssignmentScore + finalMidtermScore + finalFinalScore) < 90 && (finalAssignmentScore + finalMidtermScore + finalFinalScore)>=80){
-            grade = 3
-        } else if ((finalAssignmentScore + finalMidtermScore + finalFinalScore) < 80 && (finalAssignmentScore + finalMidtermScore + finalFinalScore)>=70){
-            grade = 2
-        } else if ((finalAssignmentScore + finalMidtermScore + finalFinalScore) < 70 && (finalAssignmentScore + finalMidtermScore + finalFinalScore)>=60){
-            grade = 1
-        } else {
-            grade = 0
-        }
-        
-        let thisGradeAndWeight = GradeWithWeight(courseTitle: courseName, grades: grade, weights: credit)
-        
-        gradeAndWeightStorage.append(thisGradeAndWeight)
-        
-        gpa = gpaCalculation(gradeAndWeightStorage)
-  //      gpa = (grade * credit) / creditWeight // end creditWeight needs to change
-        
-        print(gpa)
 //
 //        }
     }
+    
     
     func gpaCalculation(_ array: [GradeWithWeight]) -> Double {
         var credit: Double = 0
