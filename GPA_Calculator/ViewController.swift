@@ -52,7 +52,6 @@ class ViewController: UIViewController {
         var finalFinalScore: Double = 0
         var credit: Double = 0
         var grade: Double = 0
-    //    var gpa: Double = 0
         let courseName = titleOfCourse.text
 
         //check for all bubbles to be filled Assign
@@ -91,7 +90,6 @@ class ViewController: UIViewController {
         
         // if total percent = 100 proceed else error
         if totalPercent == 100 {
-            
             if let credits = Double(numberOfCredits.text!){
                 credit = credits
             } else {
@@ -106,14 +104,11 @@ class ViewController: UIViewController {
             gpaCalculation(gradeAndWeightStorage)
             
             printClassAndGrade(gradeAndWeightStorage)
-         //   gpaLabel.text = String(gpa)
             
         } else {
             print("Invalid Percentages")
             return
         }
-//
-//        }
     }
     
     @IBAction func deleteButtonPush(_ sender: UIButton) {
@@ -122,14 +117,7 @@ class ViewController: UIViewController {
             if (possibleInt > 0) && (possibleInt <= 4) && (gradeAndWeightStorage.count >= possibleInt) {
                 deleteCourse(numberToBeDeleted: possibleInt - 1)
             }
-        }
-//        if (Int?(deleteCourseNumber.text!)!)== nil{
-//            return
-//        }
-//        else if ((Int(deleteCourseNumber.text!)! > 0) && (Int(deleteCourseNumber.text!)! <= 4)){
-//            deleteCourse(numberToBeDeleted : Int(deleteCourseNumber.text!)! - 1)
-//        }
-        else {
+        } else {
             return
         }
     }
@@ -164,7 +152,6 @@ class ViewController: UIViewController {
             } else if count == 4 {
                 fourthCourse.text = (String(count) + ") " + item.courseTitle! + " | " + String(Int(item.weights)) + " " + grade)
             }
-      
         }
     }
     
