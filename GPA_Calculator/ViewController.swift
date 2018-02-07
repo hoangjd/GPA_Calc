@@ -11,7 +11,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-
+    @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var titleOfCourse: UITextField!
     @IBOutlet weak var assignmentPoint: UITextField!
     @IBOutlet weak var midtermPoint: UITextField!
@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var percentFinal: UITextField!
     @IBOutlet weak var numberOfCredits: UITextField!
     @IBOutlet weak var deleteCourseNumber: UITextField!
+    
     @IBOutlet weak var firstCourse: UILabel!
     @IBOutlet weak var secondCourse: UILabel!
     @IBOutlet weak var thirdCourse: UILabel!
@@ -32,8 +33,8 @@ class ViewController: UIViewController {
     
     struct GradeWithWeight {
         var courseTitle: String?
-        var grades: Double = 0
-        var weights: Double = 0
+        var grades: Double = -1
+        var weights: Double = -1
     }
     
     var gradeAndWeightStorage: [GradeWithWeight] = []
@@ -51,7 +52,7 @@ class ViewController: UIViewController {
         var finalFinalScore: Double = 0
         var credit: Double = 0
         var grade: Double = 0
-        var gpa: Double = 0
+    //    var gpa: Double = 0
         let courseName = titleOfCourse.text
 
         //check for all bubbles to be filled Assign
@@ -80,6 +81,7 @@ class ViewController: UIViewController {
         if let pointsFinal = Double(finalPoint.text!),
             let maxFinal = Double(maxScoreFinal.text!),
             let percentFinal = Double(percentFinal.text!){
+            
             finalFinalScore = pointsFinal / maxFinal * percentFinal
             totalPercent = totalPercent + percentFinal
         } else {
@@ -101,10 +103,10 @@ class ViewController: UIViewController {
             let thisGradeAndWeight = GradeWithWeight(courseTitle: courseName, grades: grade, weights: credit) //create a new struct
             
             gradeAndWeightStorage.append(thisGradeAndWeight) //add course into array
-            gpa = gpaCalculation(gradeAndWeightStorage)
+            gpaCalculation(gradeAndWeightStorage)
             
             printClassAndGrade(gradeAndWeightStorage)
-            gpaLabel.text = String(gpa)
+         //   gpaLabel.text = String(gpa)
             
         } else {
             print("Invalid Percentages")
@@ -114,39 +116,91 @@ class ViewController: UIViewController {
 //        }
     }
     
+    @IBAction func deleteButtonPush(_ sender: UIButton) {
+        //optional Binding
+        if let possibleInt = Int(deleteCourseNumber.text!){
+            if (possibleInt > 0) && (possibleInt <= 4) && (gradeAndWeightStorage.count >= possibleInt) {
+                deleteCourse(numberToBeDeleted: possibleInt - 1)
+            }
+        }
+//        if (Int?(deleteCourseNumber.text!)!)== nil{
+//            return
+//        }
+//        else if ((Int(deleteCourseNumber.text!)! > 0) && (Int(deleteCourseNumber.text!)! <= 4)){
+//            deleteCourse(numberToBeDeleted : Int(deleteCourseNumber.text!)! - 1)
+//        }
+        else {
+            return
+        }
+    }
+    
+    
+    func deleteCourse(numberToBeDeleted: Int){
+        if gradeAndWeightStorage[numberToBeDeleted].weights == -1{
+            return
+        } else {
+            gradeAndWeightStorage.remove(at: numberToBeDeleted)
+            gpaCalculation(gradeAndWeightStorage)
+            printClassAndGrade(gradeAndWeightStorage)
+        }
+    }
+    
     //prints what is on the chalkboard
     func printClassAndGrade (_ array: [GradeWithWeight]) {
-        var letterGrade: String
+        
+        clearBoard()
+        var grade: String
         var count = 0
         for item in array {
             count = count + 1
-            if item.grades == 4.0 {
-                letterGrade = "A"
-            } else if item.grades == 3.0 {
-                letterGrade = "B"
-            } else if item.grades == 2.0 {
-                letterGrade = "C"
-            } else if item.grades == 1.0 {
-                letterGrade = "D"
-            } else {
-                letterGrade = "F"
-            }
+            grade = returnLetterGrade(item)
             
             if count == 1{
-                firstCourse.text = (String(count) + ") " + item.courseTitle! + " | " + String(Int(item.weights)) + " " + letterGrade)
+                firstCourse.text = (String(count) + ") " + item.courseTitle! + " | " + String(Int(item.weights)) + " " + grade)
             } else if count == 2 {
-                secondCourse.text = (String(count) + ") " + item.courseTitle! + " | " + String(Int(item.weights)) + " " + letterGrade)
+                secondCourse.text = (String(count) + ") " + item.courseTitle! + " | " + String(Int(item.weights)) + " " + grade)
             } else if count == 3 {
-                thirdCourse.text = (String(count) + ") " + item.courseTitle! + " | " + String(Int(item.weights)) + " " + letterGrade)
+                thirdCourse.text = (String(count) + ") " + item.courseTitle! + " | " + String(Int(item.weights)) + " " + grade)
             } else if count == 4 {
-                fourthCourse.text = (String(count) + ") " + item.courseTitle! + " | " + String(Int(item.weights)) + " " + letterGrade)
+                fourthCourse.text = (String(count) + ") " + item.courseTitle! + " | " + String(Int(item.weights)) + " " + grade)
             }
-            print(item.courseTitle! + "|" + String(Int(item.weights)) + " " + letterGrade)
+      
         }
+    }
+    
+    func returnLetterGrade(_ grade: GradeWithWeight) -> String {
+        var finalLetterGrade: String
+        if grade.grades == 4.0 {
+            finalLetterGrade = "A"
+        } else if grade.grades == 3.0 {
+            finalLetterGrade = "B"
+        } else if grade.grades == 2.0 {
+            finalLetterGrade = "C"
+        } else if grade.grades == 1.0 {
+            finalLetterGrade = "D"
+        } else {
+            finalLetterGrade = "F"
+        }
+        return finalLetterGrade
     }
     
     //checks for Value of final grade
     func gradeCheck(_ firstScore: Double,_ secondScore: Double,_ thirdScore: Double) -> Double{
+        
+        var firstScore = firstScore
+        var secondScore = secondScore
+        var thirdScore = thirdScore
+        
+        if firstScore.isNaN {
+            firstScore = 0
+        }
+        if secondScore.isNaN {
+            secondScore = 0
+        }
+        if thirdScore.isNaN {
+            thirdScore = 0
+        }
+        
         if ((firstScore + secondScore + thirdScore) > 90){
             return 4
         } else if ((firstScore + secondScore + thirdScore) < 90 && (firstScore + secondScore + thirdScore)>=80){
@@ -161,18 +215,29 @@ class ViewController: UIViewController {
     }
     
     //calculates gpa
-    func gpaCalculation(_ array: [GradeWithWeight]) -> Double {
+    func gpaCalculation(_ array: [GradeWithWeight]) {
+        var updateGPA: Double
         var credit: Double = 0
         var grade: Double = 0
+        
         for items in array{
             grade = grade + (items.weights * items.grades)
             credit = credit + items.weights
-       // var gpa: Double = 0
         }
-        let gpa = grade/credit
-        return gpa
+        if !((grade/credit).isNaN) {
+            updateGPA = grade/credit
+            gpaLabel.text = String(updateGPA)
+        } else {
+            gpaLabel.text = ""
+        }
     }
     
+    func clearBoard(){
+        firstCourse.text = ""
+        secondCourse.text = ""
+        thirdCourse.text = ""
+        fourthCourse.text = ""
+    }
     
 
     override func didReceiveMemoryWarning() {
