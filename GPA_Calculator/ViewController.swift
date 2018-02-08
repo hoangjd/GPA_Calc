@@ -45,7 +45,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    
+    // Add Course Button Push
     @IBAction func AddCourseCalc(_ sender: UIButton) {
         var totalPercent: Double = 0
         var finalAssignmentScore: Double = 0
@@ -58,42 +58,22 @@ class ViewController: UIViewController {
         if gradeAndWeightStorage.count < 4 {
             let courseName = titleOfCourse.text
             
-            //check for all bubbles to be filled Assign
-            if let pointsAssign = Double(assignmentPoint.text!),
-                let maxAssign = Double(maxScoreAssignments.text!),
-                let percentAssign = Double(percentAssignments.text!){
-                finalAssignmentScore = pointsAssign / maxAssign * percentAssign
-                totalPercent = totalPercent + percentAssign
-            } else {
-                print("Invalid inputs in assingments row")
-                return
-            }
-            
-            //check for all bubbles to be filled Midterm
-            if let pointsMidterm = Double(midtermPoint.text!),
-                let maxMidterm = Double(maxScoreMidterm.text!),
-                let percentMidterm = Double(percentMidterm.text!){
-                finalMidtermScore = pointsMidterm / maxMidterm * percentMidterm
-                totalPercent = totalPercent + percentMidterm
-            } else {
-                print("Invalid inputs in midterm row")
-                return
-            }
-            
-            //check for all bubbles to be filled Final
-            if let pointsFinal = Double(finalPoint.text!),
-                let maxFinal = Double(maxScoreFinal.text!),
-                let percentFinal = Double(percentFinal.text!){
-                
-                finalFinalScore = pointsFinal / maxFinal * percentFinal
-                totalPercent = totalPercent + percentFinal
-            } else {
-                print("Invalid inputs in final row")
-                return
-            }
-            
+            //calculate scores and percent
+            finalAssignmentScore = calculatePoints(points: assignmentPoint,max: maxScoreAssignments,percent: percentAssignments)
+            totalPercent = calculatePercent(percent: percentAssignments, totalPercent: totalPercent)
+
+            //calculate scores and percent
+            finalMidtermScore = calculatePoints(points: midtermPoint,max: maxScoreMidterm,percent: percentMidterm)
+            totalPercent = calculatePercent(percent: percentMidterm, totalPercent: totalPercent)
+
+            //calculate scores and percent
+            finalFinalScore = calculatePoints(points: finalPoint,max: maxScoreFinal,percent: percentFinal)
+            totalPercent = calculatePercent(percent: percentFinal, totalPercent: totalPercent)
+
             // if total percent = 100 proceed else error
             if totalPercent == 100 {
+                
+                //make sure number is inputed in credits
                 if let credits = Double(numberOfCredits.text!){
                     credit = credits
                 } else {
@@ -116,6 +96,7 @@ class ViewController: UIViewController {
         }
     }
     
+    //deleteButtonPush
     @IBAction func deleteButtonPush(_ sender: UIButton) {
         //optional Binding
         if let possibleInt = Int(deleteCourseNumber.text!){
@@ -124,6 +105,33 @@ class ViewController: UIViewController {
             }
         } else {
             return
+        }
+    }
+    
+    //calculate points on individual rows
+    func calculatePoints(points: UITextField, max: UITextField, percent: UITextField) -> Double {
+        var finalFinalScore: Double
+
+        if let pointsFinal = Double(points.text!),
+            let maxFinal = Double(max.text!),
+            let percentFinal = Double(percent.text!){
+            
+            finalFinalScore = pointsFinal / maxFinal * percentFinal
+            return finalFinalScore
+        } else {
+            return 0
+        }
+    }
+    
+    //calculate percentages
+    func calculatePercent(percent: UITextField, totalPercent: Double) -> Double {
+        var nextTotal = totalPercent
+        
+        if let percentCalc = Double(percent.text!) {
+            nextTotal = totalPercent + percentCalc
+            return nextTotal
+        } else {
+            return nextTotal
         }
     }
     
