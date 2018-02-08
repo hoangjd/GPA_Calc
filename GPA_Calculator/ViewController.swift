@@ -98,6 +98,13 @@ class ViewController: UIViewController {
                 present(alert, animated: true, completion: nil)
                 return
             }
+        } else {
+            let alert = UIAlertController(title: "Error", message: "The maximum amount of classes that can be added is 4", preferredStyle: .alert)
+            let action = UIAlertAction(title:"Cancel", style: .cancel, handler: nil)
+            alert.addAction(action)
+            
+            present(alert, animated: true, completion: nil)
+            return
         }
     }
     
@@ -237,6 +244,7 @@ class ViewController: UIViewController {
         } else {
             gpaLabel.text = ""
             gpaLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            gpaConstant.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
         }
     }
     
