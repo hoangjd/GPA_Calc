@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var numberOfCredits: UITextField!
     @IBOutlet weak var deleteCourseNumber: UITextField!
     
+    @IBOutlet weak var gpaConstant: UILabel!
     @IBOutlet weak var firstCourse: UILabel!
     @IBOutlet weak var secondCourse: UILabel!
     @IBOutlet weak var thirdCourse: UILabel!
@@ -52,62 +53,66 @@ class ViewController: UIViewController {
         var finalFinalScore: Double = 0
         var credit: Double = 0
         var grade: Double = 0
-        let courseName = titleOfCourse.text
-
-        //check for all bubbles to be filled Assign
-        if let pointsAssign = Double(assignmentPoint.text!),
-            let maxAssign = Double(maxScoreAssignments.text!),
-            let percentAssign = Double(percentAssignments.text!){
-            finalAssignmentScore = pointsAssign / maxAssign * percentAssign
-            totalPercent = totalPercent + percentAssign
-        } else {
-            print("Invalid inputs in assingments row")
-            return
-        }
         
-        //check for all bubbles to be filled Midterm
-        if let pointsMidterm = Double(midtermPoint.text!),
-            let maxMidterm = Double(maxScoreMidterm.text!),
-            let percentMidterm = Double(percentMidterm.text!){
-            finalMidtermScore = pointsMidterm / maxMidterm * percentMidterm
-            totalPercent = totalPercent + percentMidterm
-        } else {
-            print("Invalid inputs in midterm row")
-            return
-        }
-        
-        //check for all bubbles to be filled Final
-        if let pointsFinal = Double(finalPoint.text!),
-            let maxFinal = Double(maxScoreFinal.text!),
-            let percentFinal = Double(percentFinal.text!){
+        // if 4 courses have already been input dont do this
+        if gradeAndWeightStorage.count < 4 {
+            let courseName = titleOfCourse.text
             
-            finalFinalScore = pointsFinal / maxFinal * percentFinal
-            totalPercent = totalPercent + percentFinal
-        } else {
-            print("Invalid inputs in final row")
-            return
-        }
-        
-        // if total percent = 100 proceed else error
-        if totalPercent == 100 {
-            if let credits = Double(numberOfCredits.text!){
-                credit = credits
+            //check for all bubbles to be filled Assign
+            if let pointsAssign = Double(assignmentPoint.text!),
+                let maxAssign = Double(maxScoreAssignments.text!),
+                let percentAssign = Double(percentAssignments.text!){
+                finalAssignmentScore = pointsAssign / maxAssign * percentAssign
+                totalPercent = totalPercent + percentAssign
             } else {
-                print("Invalid inputs in credits row")
+                print("Invalid inputs in assingments row")
+                return
             }
             
-            grade = gradeCheck(finalAssignmentScore, finalMidtermScore, finalFinalScore)
+            //check for all bubbles to be filled Midterm
+            if let pointsMidterm = Double(midtermPoint.text!),
+                let maxMidterm = Double(maxScoreMidterm.text!),
+                let percentMidterm = Double(percentMidterm.text!){
+                finalMidtermScore = pointsMidterm / maxMidterm * percentMidterm
+                totalPercent = totalPercent + percentMidterm
+            } else {
+                print("Invalid inputs in midterm row")
+                return
+            }
             
-            let thisGradeAndWeight = GradeWithWeight(courseTitle: courseName, grades: grade, weights: credit) //create a new struct
+            //check for all bubbles to be filled Final
+            if let pointsFinal = Double(finalPoint.text!),
+                let maxFinal = Double(maxScoreFinal.text!),
+                let percentFinal = Double(percentFinal.text!){
+                
+                finalFinalScore = pointsFinal / maxFinal * percentFinal
+                totalPercent = totalPercent + percentFinal
+            } else {
+                print("Invalid inputs in final row")
+                return
+            }
             
-            gradeAndWeightStorage.append(thisGradeAndWeight) //add course into array
-            gpaCalculation(gradeAndWeightStorage)
-            
-            printClassAndGrade(gradeAndWeightStorage)
-            
-        } else {
-            print("Invalid Percentages")
-            return
+            // if total percent = 100 proceed else error
+            if totalPercent == 100 {
+                if let credits = Double(numberOfCredits.text!){
+                    credit = credits
+                } else {
+                    print("Invalid inputs in credits row")
+                }
+                
+                grade = gradeCheck(finalAssignmentScore, finalMidtermScore, finalFinalScore)
+                
+                let thisGradeAndWeight = GradeWithWeight(courseTitle: courseName, grades: grade, weights: credit) //create a new struct
+                
+                gradeAndWeightStorage.append(thisGradeAndWeight) //add course into array
+                gpaCalculation(gradeAndWeightStorage)
+                
+                printClassAndGrade(gradeAndWeightStorage)
+                
+            } else {
+                print("Invalid Percentages")
+                return
+            }
         }
     }
     
@@ -213,9 +218,25 @@ class ViewController: UIViewController {
         }
         if !((grade/credit).isNaN) {
             updateGPA = grade/credit
+            updateGPA = Double(round(100*updateGPA)/100)
             gpaLabel.text = String(updateGPA)
+            gpaColorChange(updateGPA)
         } else {
             gpaLabel.text = ""
+            gpaLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        }
+    }
+    
+    func gpaColorChange (_ calculatedGPA: Double) {
+        if calculatedGPA >= 3 {
+            gpaLabel.textColor = UIColor(red: 60/255, green: 228/255, blue: 14/255, alpha: 1)
+            gpaConstant.textColor = UIColor(red: 60/255, green: 228/255, blue: 14/255, alpha: 1)
+        } else if calculatedGPA < 3, calculatedGPA >= 2 {
+            gpaLabel.textColor = UIColor(red: 255/255, green: 240/255, blue: 59/255, alpha: 1)
+            gpaConstant.textColor = UIColor(red: 255/255, green: 240/255, blue: 59/255, alpha: 1)
+        } else {
+            gpaLabel.textColor = UIColor(red: 255/255, green: 46/255, blue: 59/255, alpha: 1)
+            gpaConstant.textColor = UIColor(red: 255/255, green: 46/255, blue: 59/255, alpha: 1)
         }
     }
     
