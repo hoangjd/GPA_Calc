@@ -90,7 +90,12 @@ class ViewController: UIViewController {
                 printClassAndGrade(gradeAndWeightStorage)
                 
             } else {
-                print("Invalid Percentages")
+                
+                let alert = UIAlertController(title: "Error", message: "Percentages do not equal 100", preferredStyle: .alert)
+                let action = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                alert.addAction(action)
+                
+                present(alert, animated: true, completion: nil)
                 return
             }
         }
