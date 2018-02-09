@@ -13,6 +13,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="AppleSDGothicNeo.ttc">
+            <string>AppleSDGothicNeo-SemiBold</string>
+        </array>
         <array key="ArchitectsDaughter.ttf">
             <string>ArchitectsDaughter</string>
         </array>
@@ -26,7 +29,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gpa-calculator-title" translatesAutoresizingMaskIntoConstraints="NO" id="jTK-Mt-nOc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cooltext275457308079585" translatesAutoresizingMaskIntoConstraints="NO" id="jTK-Mt-nOc" userLabel="GPA Calculator">
                                 <rect key="frame" x="20" y="30" width="374" height="77"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="374" id="bf8-Vl-03S"/>
@@ -39,36 +42,36 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Assessment Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qgT-rg-xBS">
                                         <rect key="frame" x="9.6666666666666714" y="54.666666666666657" width="134.66666666666663" height="33"/>
-                                        <color key="backgroundColor" red="0.35876487810000002" green="0.80605449819999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="backgroundColor" red="0.38953152626046217" green="0.72484766637584452" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="17"/>
                                         <color key="textColor" red="0.99995678663253784" green="0.99611574411392212" blue="0.99592572450637817" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Midterm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYs-KN-Z6J">
                                         <rect key="frame" x="10" y="135" width="135" height="33"/>
-                                        <color key="backgroundColor" red="0.35876487810000002" green="0.80605449819999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="backgroundColor" red="0.38953152629999999" green="0.72484766639999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Final" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BKs-gK-V5Y">
                                         <rect key="frame" x="10" y="175" width="135" height="33.666666666666657"/>
-                                        <color key="backgroundColor" red="0.35876487810000002" green="0.80605449819999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="backgroundColor" red="0.38953152629999999" green="0.72484766639999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="739" verticalCompressionResistancePriority="748" text="Point" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NV4-1e-N0j">
                                         <rect key="frame" x="152.33333333333334" y="54.666666666666657" width="65" height="33"/>
-                                        <color key="backgroundColor" red="0.35876487810000002" green="0.80605449819999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="backgroundColor" red="0.38953152629999999" green="0.72484766639999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dQ-BR-nN5">
                                         <rect key="frame" x="297.66666666666669" y="54.666666666666657" width="65.333333333333314" height="33.333333333333343"/>
-                                        <color key="backgroundColor" red="0.35876487810000002" green="0.80605449819999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="backgroundColor" red="0.38953152629999999" green="0.72484766639999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -127,27 +130,27 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="Title of the course:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3lp-SL-ITR">
-                                        <rect key="frame" x="10" y="11" width="143.66666666666666" height="33.666666666666664"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="10" y="11" width="137.33333333333334" height="33.666666666666664"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Assignments" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVc-HS-Ugk">
                                         <rect key="frame" x="10" y="94.666666666666657" width="135" height="33.333333333333343"/>
-                                        <color key="backgroundColor" red="0.35876487810000002" green="0.80605449819999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="backgroundColor" red="0.38953152629999999" green="0.72484766639999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgc-hJ-JgY">
                                         <rect key="frame" x="225.33333333333334" y="54.666666666666657" width="64.333333333333343" height="33.333333333333343"/>
-                                        <color key="backgroundColor" red="0.35876487810000002" green="0.80605449819999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="backgroundColor" red="0.38953152629999999" green="0.72484766639999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kzE-V5-3E0">
-                                        <rect key="frame" x="161.66666666666663" y="11" width="201" height="33.666666666666664"/>
+                                        <rect key="frame" x="155.33333333333331" y="11" width="207.33333333333331" height="33.666666666666664"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -158,20 +161,20 @@
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chalkboard" translatesAutoresizingMaskIntoConstraints="NO" id="Gli-Nx-DGC">
                                                 <rect key="frame" x="5" y="-0.66666666666668561" width="363" height="289.33333333333331"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3po-lp-YiH">
-                                                <rect key="frame" x="75.666666666666686" y="75.333333333333314" width="222" height="0.0"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.84999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="3po-lp-YiH">
+                                                <rect key="frame" x="76" y="70.666666666666629" width="0.0" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="ArchitectsDaughter" family="Architects Daughter" pointSize="15"/>
                                                 <color key="textColor" red="0.99995678663253784" green="0.99611574411392212" blue="0.99592572450637817" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqY-Ob-yxN">
-                                                <rect key="frame" x="75.666666666666671" y="80.333333333333314" width="221.33333333333331" height="0.0"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="PqY-Ob-yxN">
+                                                <rect key="frame" x="76" y="75.666666666666629" width="0.0" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="ArchitectsDaughter" family="Architects Daughter" pointSize="15"/>
                                                 <color key="textColor" red="0.99995678663253784" green="0.99611574411392212" blue="0.99592572450637817" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NO0-We-VcT">
-                                                <rect key="frame" x="75.666666666666671" y="85.333333333333314" width="221.33333333333331" height="0.0"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="NO0-We-VcT">
+                                                <rect key="frame" x="76" y="80.666666666666629" width="0.0" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="ArchitectsDaughter" family="Architects Daughter" pointSize="15"/>
                                                 <color key="textColor" red="0.99995678663253784" green="0.99611574411392212" blue="0.99592572450637817" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -182,8 +185,8 @@
                                                 <color key="textColor" red="0.99995678663253784" green="0.99611574411392212" blue="0.99592572450637817" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SbU-lB-7T3">
-                                                <rect key="frame" x="75.666666666666671" y="90.333333333333314" width="221.33333333333331" height="0.0"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="SbU-lB-7T3">
+                                                <rect key="frame" x="76" y="85.666666666666629" width="0.0" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="ArchitectsDaughter" family="Architects Daughter" pointSize="15"/>
                                                 <color key="textColor" red="0.99995678663253784" green="0.99611574411392212" blue="0.99592572450637817" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -195,52 +198,94 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Current List of Courses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSP-6Q-8MC">
-                                                <rect key="frame" x="75.999999999999986" y="39.333333333333314" width="221.66666666666663" height="26"/>
+                                                <rect key="frame" x="76.000000000000014" y="40" width="221.33333333333337" height="25.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="ArchitectsDaughter" family="Architects Daughter" pointSize="16"/>
                                                 <color key="textColor" red="0.99995678663253784" green="0.99611574411392212" blue="0.99592572450637817" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bkZ-xC-FAg" userLabel="first grade">
+                                                <rect key="frame" x="76" y="58.333333333333314" width="25" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="25" id="8ve-QH-ExF"/>
+                                                    <constraint firstAttribute="height" constant="25" id="TLk-Cg-gUD"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9vg-di-tMg" userLabel="second grade">
+                                                <rect key="frame" x="76" y="63.333333333333314" width="25" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="25" id="V0A-qk-hxS"/>
+                                                    <constraint firstAttribute="height" constant="25" id="edS-BS-GKy"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5At-Mb-xxx" userLabel="third grade">
+                                                <rect key="frame" x="76" y="68.333333333333314" width="25" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="DUp-A9-DMP"/>
+                                                    <constraint firstAttribute="width" constant="25" id="TVP-JT-aja"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ShS-xL-QjW" userLabel="fourth grade">
+                                                <rect key="frame" x="76" y="73.333333333333314" width="25" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="25" id="5hr-Ko-gcV"/>
+                                                    <constraint firstAttribute="height" constant="25" id="M7r-XZ-kHf"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="iSP-6Q-8MC" firstAttribute="width" secondItem="3po-lp-YiH" secondAttribute="width" id="21c-cW-kL7"/>
-                                            <constraint firstItem="3po-lp-YiH" firstAttribute="top" relation="lessThanOrEqual" secondItem="iSP-6Q-8MC" secondAttribute="bottom" priority="750" constant="10" id="2TP-VV-2c2"/>
+                                            <constraint firstItem="iSP-6Q-8MC" firstAttribute="width" secondItem="3po-lp-YiH" secondAttribute="width" multiplier="6:5" priority="250" id="21c-cW-kL7"/>
+                                            <constraint firstItem="3po-lp-YiH" firstAttribute="top" relation="lessThanOrEqual" secondItem="iSP-6Q-8MC" secondAttribute="bottom" priority="750" constant="5" id="2TP-VV-2c2"/>
+                                            <constraint firstItem="bkZ-xC-FAg" firstAttribute="leading" secondItem="3po-lp-YiH" secondAttribute="trailing" id="4Fs-9j-rZp"/>
+                                            <constraint firstItem="3po-lp-YiH" firstAttribute="leading" secondItem="iSP-6Q-8MC" secondAttribute="leading" priority="250" id="5tn-ED-Ab9"/>
                                             <constraint firstItem="NO0-We-VcT" firstAttribute="top" relation="lessThanOrEqual" secondItem="PqY-Ob-yxN" secondAttribute="bottom" priority="750" constant="5" id="6Wb-Fm-bxn"/>
-                                            <constraint firstItem="iSP-6Q-8MC" firstAttribute="centerX" secondItem="3po-lp-YiH" secondAttribute="centerX" id="7uq-hL-TED"/>
-                                            <constraint firstItem="iSP-6Q-8MC" firstAttribute="width" secondItem="PqY-Ob-yxN" secondAttribute="width" id="8iW-oB-2NU"/>
+                                            <constraint firstItem="SbU-lB-7T3" firstAttribute="centerX" secondItem="NO0-We-VcT" secondAttribute="centerX" id="7vk-qu-pXL"/>
+                                            <constraint firstItem="9vg-di-tMg" firstAttribute="leading" secondItem="PqY-Ob-yxN" secondAttribute="trailing" id="7vs-d0-cwR"/>
                                             <constraint firstItem="0K0-yA-4g1" firstAttribute="top" relation="lessThanOrEqual" secondItem="Gli-Nx-DGC" secondAttribute="top" priority="250" constant="280" id="8rZ-lV-sX0"/>
+                                            <constraint firstItem="NO0-We-VcT" firstAttribute="centerX" secondItem="PqY-Ob-yxN" secondAttribute="centerX" id="9Vc-AF-fyt"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9vg-di-tMg" secondAttribute="trailing" constant="10" id="CJg-EN-otF"/>
                                             <constraint firstItem="Gli-Nx-DGC" firstAttribute="top" secondItem="f1Y-n4-VMm" secondAttribute="top" id="FEt-Wt-YM2"/>
                                             <constraint firstAttribute="trailing" secondItem="Gli-Nx-DGC" secondAttribute="trailing" constant="5" id="HXP-Gb-72a"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5At-Mb-xxx" secondAttribute="trailing" constant="10" id="Juw-ps-6Ry"/>
+                                            <constraint firstItem="SbU-lB-7T3" firstAttribute="height" secondItem="NO0-We-VcT" secondAttribute="height" id="KQM-uR-8DX"/>
                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="0K0-yA-4g1" secondAttribute="bottom" constant="20" id="KWY-d8-muP"/>
-                                            <constraint firstItem="iSP-6Q-8MC" firstAttribute="width" secondItem="NO0-We-VcT" secondAttribute="width" id="P3T-xK-8C9"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bkZ-xC-FAg" secondAttribute="trailing" constant="10" id="LlL-AU-MPZ"/>
+                                            <constraint firstItem="5At-Mb-xxx" firstAttribute="centerY" secondItem="NO0-We-VcT" secondAttribute="centerY" id="Lw8-ha-pii"/>
+                                            <constraint firstItem="9vg-di-tMg" firstAttribute="centerY" secondItem="PqY-Ob-yxN" secondAttribute="centerY" id="Lxx-uH-vpJ"/>
+                                            <constraint firstItem="PqY-Ob-yxN" firstAttribute="centerX" secondItem="3po-lp-YiH" secondAttribute="centerX" priority="999" id="M3B-Fd-bsW"/>
+                                            <constraint firstItem="ShS-xL-QjW" firstAttribute="centerY" secondItem="SbU-lB-7T3" secondAttribute="centerY" id="Nw9-c2-mhd"/>
+                                            <constraint firstItem="NO0-We-VcT" firstAttribute="height" secondItem="PqY-Ob-yxN" secondAttribute="height" id="O8j-cW-oxA"/>
+                                            <constraint firstItem="bkZ-xC-FAg" firstAttribute="centerY" secondItem="3po-lp-YiH" secondAttribute="centerY" id="OYS-TY-ccW"/>
                                             <constraint firstItem="0K0-yA-4g1" firstAttribute="top" secondItem="SbU-lB-7T3" secondAttribute="bottom" priority="249" constant="7" id="WcW-Jd-gZz"/>
+                                            <constraint firstItem="NO0-We-VcT" firstAttribute="width" secondItem="PqY-Ob-yxN" secondAttribute="width" id="XNO-dQ-JYy"/>
                                             <constraint firstItem="qHv-Dy-5Xt" firstAttribute="centerY" secondItem="0K0-yA-4g1" secondAttribute="centerY" id="Xwd-4j-2eA"/>
                                             <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="0K0-yA-4g1" secondAttribute="bottom" priority="250" constant="60" id="YrT-XF-Lb9"/>
-                                            <constraint firstItem="SbU-lB-7T3" firstAttribute="centerX" secondItem="NO0-We-VcT" secondAttribute="centerX" id="ZuR-9d-HD1"/>
+                                            <constraint firstItem="ShS-xL-QjW" firstAttribute="leading" secondItem="SbU-lB-7T3" secondAttribute="trailing" id="Z8J-dt-Xfg"/>
                                             <constraint firstItem="SbU-lB-7T3" firstAttribute="top" relation="greaterThanOrEqual" secondItem="NO0-We-VcT" secondAttribute="bottom" constant="2" id="a9G-Tf-TNu"/>
+                                            <constraint firstItem="iSP-6Q-8MC" firstAttribute="top" relation="lessThanOrEqual" secondItem="f1Y-n4-VMm" secondAttribute="top" constant="40" id="fA8-LB-OqN"/>
                                             <constraint firstItem="iSP-6Q-8MC" firstAttribute="centerX" secondItem="f1Y-n4-VMm" secondAttribute="centerX" id="gQ9-Gt-WrV"/>
                                             <constraint firstItem="Gli-Nx-DGC" firstAttribute="centerX" secondItem="f1Y-n4-VMm" secondAttribute="centerX" id="gbQ-4b-PTy"/>
                                             <constraint firstItem="qHv-Dy-5Xt" firstAttribute="leading" secondItem="f1Y-n4-VMm" secondAttribute="centerX" constant="3" id="gk8-Go-YQC"/>
                                             <constraint firstItem="SbU-lB-7T3" firstAttribute="top" relation="lessThanOrEqual" secondItem="NO0-We-VcT" secondAttribute="bottom" priority="750" constant="5" id="gwt-CD-Zbi"/>
                                             <constraint firstItem="0K0-yA-4g1" firstAttribute="trailing" secondItem="f1Y-n4-VMm" secondAttribute="centerX" constant="1" id="hbu-zv-1IV"/>
                                             <constraint firstItem="PqY-Ob-yxN" firstAttribute="top" relation="lessThanOrEqual" secondItem="3po-lp-YiH" secondAttribute="bottom" priority="750" constant="5" id="j4f-TT-pon"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ShS-xL-QjW" secondAttribute="trailing" constant="10" id="kgb-Hn-Tst"/>
                                             <constraint firstItem="Gli-Nx-DGC" firstAttribute="leading" secondItem="f1Y-n4-VMm" secondAttribute="leading" constant="5" id="nIX-nz-DB6"/>
-                                            <constraint firstItem="SbU-lB-7T3" firstAttribute="width" secondItem="NO0-We-VcT" secondAttribute="width" id="nyO-3T-EkX"/>
-                                            <constraint firstItem="iSP-6Q-8MC" firstAttribute="centerX" secondItem="PqY-Ob-yxN" secondAttribute="centerX" id="olO-CO-yVs"/>
                                             <constraint firstItem="0K0-yA-4g1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Gli-Nx-DGC" secondAttribute="top" constant="150" id="otw-H1-l2O"/>
-                                            <constraint firstItem="iSP-6Q-8MC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="f1Y-n4-VMm" secondAttribute="top" constant="30" id="qIw-C0-mnR"/>
-                                            <constraint firstItem="SbU-lB-7T3" firstAttribute="height" secondItem="NO0-We-VcT" secondAttribute="height" id="qck-jd-lHy"/>
-                                            <constraint firstItem="iSP-6Q-8MC" firstAttribute="centerX" secondItem="NO0-We-VcT" secondAttribute="centerX" id="rcd-dj-t1i"/>
-                                            <constraint firstItem="iSP-6Q-8MC" firstAttribute="top" relation="lessThanOrEqual" secondItem="Gli-Nx-DGC" secondAttribute="top" priority="750" constant="40" id="sPV-Aq-HIR"/>
+                                            <constraint firstItem="PqY-Ob-yxN" firstAttribute="width" secondItem="3po-lp-YiH" secondAttribute="width" id="p0M-f5-dZ3"/>
+                                            <constraint firstItem="iSP-6Q-8MC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="f1Y-n4-VMm" secondAttribute="top" priority="999" constant="30" id="qIw-C0-mnR"/>
+                                            <constraint firstItem="5At-Mb-xxx" firstAttribute="leading" secondItem="NO0-We-VcT" secondAttribute="trailing" id="rSg-HF-S1e"/>
                                             <constraint firstItem="3po-lp-YiH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iSP-6Q-8MC" secondAttribute="bottom" constant="3" id="sdi-dg-Aal"/>
                                             <constraint firstAttribute="bottom" secondItem="Gli-Nx-DGC" secondAttribute="bottom" id="v1h-Bo-50B"/>
                                             <constraint firstItem="PqY-Ob-yxN" firstAttribute="top" relation="greaterThanOrEqual" secondItem="3po-lp-YiH" secondAttribute="bottom" constant="2" id="vYy-Km-rzM"/>
+                                            <constraint firstItem="SbU-lB-7T3" firstAttribute="width" secondItem="NO0-We-VcT" secondAttribute="width" id="vkL-wK-pR1"/>
                                             <constraint firstItem="NO0-We-VcT" firstAttribute="top" relation="greaterThanOrEqual" secondItem="PqY-Ob-yxN" secondAttribute="bottom" constant="2" id="w4q-ah-smP"/>
+                                            <constraint firstItem="3po-lp-YiH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="f1Y-n4-VMm" secondAttribute="leading" constant="10" id="zYY-mn-fe9"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Og-l0-NRC">
                                         <rect key="frame" x="10" y="215.66666666666669" width="135" height="33"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="17"/>
                                         <state key="normal" title="Add Course" backgroundImage="if_button-light-blue_48576">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -250,8 +295,8 @@
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Credits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHJ-5D-kMA">
                                         <rect key="frame" x="153" y="216" width="136.66666666666663" height="32.666666666666657"/>
-                                        <color key="backgroundColor" red="0.35876487810000002" green="0.80605449819999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="backgroundColor" red="0.38953152629999999" green="0.72484766639999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -269,6 +314,7 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4b3-9C-Ceh">
                                         <rect key="frame" x="10" y="537.33333333333337" width="135" height="33.666666666666629"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="17"/>
                                         <state key="normal" title="Delete Course" backgroundImage="if_button-light-blue_48576">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -405,7 +451,9 @@
                         <outlet property="deleteCourseNumber" destination="77o-45-Ky7" id="STU-Ze-cNB"/>
                         <outlet property="finalPoint" destination="UaG-ss-DDv" id="FVC-Zs-2ZO"/>
                         <outlet property="firstCourse" destination="3po-lp-YiH" id="w1Z-6r-2Cp"/>
+                        <outlet property="firstGradeImage" destination="bkZ-xC-FAg" id="IY2-Ft-d09"/>
                         <outlet property="fourthCourse" destination="SbU-lB-7T3" id="eTj-Xu-0Ls"/>
+                        <outlet property="fourthGradeImage" destination="ShS-xL-QjW" id="pfP-Cs-99l"/>
                         <outlet property="gpaConstant" destination="0K0-yA-4g1" id="HZm-v5-Q8M"/>
                         <outlet property="gpaLabel" destination="qHv-Dy-5Xt" id="gR1-f7-i7m"/>
                         <outlet property="maxScoreAssignments" destination="seM-0f-NPe" id="GF5-SE-zHX"/>
@@ -417,7 +465,9 @@
                         <outlet property="percentFinal" destination="c5w-tE-teZ" id="ARa-qk-uFZ"/>
                         <outlet property="percentMidterm" destination="wh6-0K-PCH" id="DXN-fR-0LF"/>
                         <outlet property="secondCourse" destination="PqY-Ob-yxN" id="1bo-a5-JuL"/>
+                        <outlet property="secondGradeImage" destination="9vg-di-tMg" id="Jtq-8D-12O"/>
                         <outlet property="thirdCourse" destination="NO0-We-VcT" id="m0q-Za-psk"/>
+                        <outlet property="thirdGradeImage" destination="5At-Mb-xxx" id="ovz-IW-oa1"/>
                         <outlet property="titleOfCourse" destination="kzE-V5-3E0" id="PEz-1p-sG4"/>
                     </connections>
                 </viewController>
@@ -428,7 +478,7 @@
     </scenes>
     <resources>
         <image name="chalkboard" width="446" height="295"/>
-        <image name="gpa-calculator-title" width="764" height="114"/>
+        <image name="cooltext275457308079585" width="377" height="54"/>
         <image name="if_button-light-blue_48576" width="11" height="32"/>
     </resources>
 </document>

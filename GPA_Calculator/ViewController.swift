@@ -12,6 +12,11 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var firstGradeImage: UIImageView!
+    @IBOutlet weak var secondGradeImage: UIImageView!
+    @IBOutlet weak var thirdGradeImage: UIImageView!
+    @IBOutlet weak var fourthGradeImage: UIImageView!
+    
     @IBOutlet weak var titleOfCourse: UITextField!
     @IBOutlet weak var assignmentPoint: UITextField!
     @IBOutlet weak var midtermPoint: UITextField!
@@ -162,38 +167,41 @@ class ViewController: UIViewController {
     func printClassAndGrade (_ array: [GradeWithWeight]) {
         
         clearBoard()
-        var grade: String
+//        var grade: String
         var count = 0
         for item in array {
             count = count + 1
-            grade = returnLetterGrade(item)
+         //   returnLetterGrade(item, image: UIImage)
             
             if count == 1{
-                firstCourse.text = (String(count) + ") " + item.courseTitle! + " | " + String(Int(item.weights)) + " " + grade)
+                firstCourse.text = (String(count) + ") " + item.courseTitle! + " | " + String(Int(item.weights)) + " ")
+               // firstGradeImage.image = UIImage(named: "grade_a")
+                returnLetterGrade(item,firstGradeImage)
             } else if count == 2 {
-                secondCourse.text = (String(count) + ") " + item.courseTitle! + " | " + String(Int(item.weights)) + " " + grade)
+                secondCourse.text = (String(count) + ") " + item.courseTitle! + " | " + String(Int(item.weights)) + " ")
+                returnLetterGrade(item,secondGradeImage)
             } else if count == 3 {
-                thirdCourse.text = (String(count) + ") " + item.courseTitle! + " | " + String(Int(item.weights)) + " " + grade)
+                thirdCourse.text = (String(count) + ") " + item.courseTitle! + " | " + String(Int(item.weights)) + " ")
+                returnLetterGrade(item,thirdGradeImage)
             } else if count == 4 {
-                fourthCourse.text = (String(count) + ") " + item.courseTitle! + " | " + String(Int(item.weights)) + " " + grade)
+                fourthCourse.text = (String(count) + ") " + item.courseTitle! + " | " + String(Int(item.weights)) + " ")
+                returnLetterGrade(item,fourthGradeImage)
             }
         }
     }
     
-    func returnLetterGrade(_ grade: GradeWithWeight) -> String {
-        var finalLetterGrade: String
+    func returnLetterGrade(_ grade: GradeWithWeight,_ image: UIImageView) {
         if grade.grades == 4.0 {
-            finalLetterGrade = "A"
+            image.image = UIImage(named: "grade_a")
         } else if grade.grades == 3.0 {
-            finalLetterGrade = "B"
+            image.image = UIImage(named: "grade_b")
         } else if grade.grades == 2.0 {
-            finalLetterGrade = "C"
+            image.image = UIImage(named: "grade_c")
         } else if grade.grades == 1.0 {
-            finalLetterGrade = "D"
+            image.image = UIImage(named: "grade_d")
         } else {
-            finalLetterGrade = "F"
+            image.image = UIImage(named: "grade_f")
         }
-        return finalLetterGrade
     }
     
     //checks for Value of final grade
@@ -266,6 +274,10 @@ class ViewController: UIViewController {
         secondCourse.text = ""
         thirdCourse.text = ""
         fourthCourse.text = ""
+        firstGradeImage.image = nil
+        secondGradeImage.image = nil
+        thirdGradeImage.image = nil
+        fourthGradeImage.image = nil
     }
     
 
