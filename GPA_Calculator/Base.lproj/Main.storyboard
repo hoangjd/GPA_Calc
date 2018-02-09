@@ -130,8 +130,8 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="Title of the course:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3lp-SL-ITR">
-                                        <rect key="frame" x="10" y="11" width="137.33333333333334" height="33.666666666666664"/>
-                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="17"/>
+                                        <rect key="frame" x="10" y="11" width="105" height="33.666666666666664"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -150,7 +150,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kzE-V5-3E0">
-                                        <rect key="frame" x="155.33333333333331" y="11" width="207.33333333333331" height="33.666666666666664"/>
+                                        <rect key="frame" x="122.99999999999999" y="11" width="239.66666666666663" height="33.666666666666664"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -438,7 +438,7 @@
                             <constraint firstItem="jTK-Mt-nOc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="2U4-0T-Exe"/>
                             <constraint firstItem="jTK-Mt-nOc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="9mB-9h-bz6"/>
                             <constraint firstItem="e22-C9-UUT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="21" id="M1p-0N-6JP"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="e22-C9-UUT" secondAttribute="bottom" constant="40" id="Wzu-ex-XB9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="e22-C9-UUT" secondAttribute="bottom" priority="250" constant="40" id="Wzu-ex-XB9"/>
                             <constraint firstAttribute="trailing" secondItem="jTK-Mt-nOc" secondAttribute="trailing" constant="20" id="Z0P-Cg-Dd2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="e22-C9-UUT" secondAttribute="trailing" constant="20" id="Z3u-mL-V2e"/>
                             <constraint firstItem="e22-C9-UUT" firstAttribute="top" secondItem="jTK-Mt-nOc" secondAttribute="bottom" constant="8" id="a0H-Wy-v5H"/>
