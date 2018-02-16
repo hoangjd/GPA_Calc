@@ -37,6 +37,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var fourthCourse: UILabel!
     @IBOutlet weak var gpaLabel: UILabel!
     
+    var inputCheck: Bool = true
+    
     struct GradeWithWeight {
         var courseTitle: String?
         var grades: Double = -1
@@ -58,7 +60,7 @@ class ViewController: UIViewController {
         var finalFinalScore: Double = 0
         var credit: Double = 0
         var grade: Double = 0
-        
+        inputCheck = true
         // if 4 courses have already been input dont do this
         if gradeAndWeightStorage.count < 4 {
             let courseName = titleOfCourse.text
@@ -76,7 +78,7 @@ class ViewController: UIViewController {
             totalPercent = calculatePercent(percent: percentFinal, totalPercent: totalPercent)
 
             // if total percent = 100 proceed else error
-            if totalPercent == 100 {
+            if (totalPercent == 100 && inputCheck == true) {
                 
                 //make sure number is inputed in credits
                 if let credits = Double(numberOfCredits.text!){
@@ -87,12 +89,17 @@ class ViewController: UIViewController {
                 
                 grade = gradeCheck(finalAssignmentScore, finalMidtermScore, finalFinalScore)
                 
+                
                 let thisGradeAndWeight = GradeWithWeight(courseTitle: courseName, grades: grade, weights: credit) //create a new struct
                 
-                gradeAndWeightStorage.append(thisGradeAndWeight) //add course into array
-                gpaCalculation(gradeAndWeightStorage)
+                if  checkTitle(gradeAndWeightStorage, thisGradeAndWeight.courseTitle!){
+                    gradeAndWeightStorage.append(thisGradeAndWeight) //add course into array
+                    gpaCalculation(gradeAndWeightStorage)
                 
-                printClassAndGrade(gradeAndWeightStorage)
+                    printClassAndGrade(gradeAndWeightStorage)
+                } else {
+                    return
+                }
                 
             } else {
                 
@@ -117,10 +124,22 @@ class ViewController: UIViewController {
     @IBAction func deleteButtonPush(_ sender: UIButton) {
         //optional Binding
         if let possibleInt = Int(deleteCourseNumber.text!){
-            if (possibleInt > 0) && (possibleInt <= 4) && (gradeAndWeightStorage.count >= possibleInt) {
+            if ((possibleInt > 0) && (possibleInt <= 4) && (gradeAndWeightStorage.count >= possibleInt)) {
                 deleteCourse(numberToBeDeleted: possibleInt - 1)
+            } else {
+                let alert = UIAlertController(title: "Error", message: "This number does not correspond to an existing item", preferredStyle: .alert)
+                let action = UIAlertAction(title:"Cancel", style: .cancel, handler: nil)
+                alert.addAction(action)
+                
+                present(alert, animated: true, completion: nil)
             }
-        } else {
+        }
+        else {
+            let alert = UIAlertController(title: "Error", message: "This number does not correspond to an existing item", preferredStyle: .alert)
+            let action = UIAlertAction(title:"Cancel", style: .cancel, handler: nil)
+            alert.addAction(action)
+            
+            present(alert, animated: true, completion: nil)
             return
         }
     }
@@ -132,12 +151,19 @@ class ViewController: UIViewController {
         if let pointsFinal = Double(points.text!),
             let maxFinal = Double(max.text!),
             let percentFinal = Double(percent.text!){
-            
-            finalFinalScore = pointsFinal / maxFinal * percentFinal
-            return finalFinalScore
-        } else {
-            return 0
+            if (pointsFinal <= maxFinal && pointsFinal >= 0){
+                finalFinalScore = pointsFinal / maxFinal * percentFinal
+                return finalFinalScore
+            }
+            else{
+                inputCheck = false
+                let alert = UIAlertController(title: "Error", message: "Points must be between 0 and Maximum", preferredStyle: .alert)
+                let action = UIAlertAction(title:"Cancel", style: .cancel, handler: nil)
+                alert.addAction(action)
+                present(alert, animated: true, completion: nil)
+            }
         }
+        return 0
     }
     
     //calculate percentages
@@ -154,13 +180,18 @@ class ViewController: UIViewController {
     
     
     func deleteCourse(numberToBeDeleted: Int){
-        if gradeAndWeightStorage[numberToBeDeleted].weights == -1{
-            return
-        } else {
+//        if gradeAndWeightStorage[numberToBeDeleted].weights == -1{
+//            let alert = UIAlertController(title: "Error", message: "This number does not correspond to an existing item", preferredStyle: .alert)
+//            let action = UIAlertAction(title:"Cancel", style: .cancel, handler: nil)
+//            alert.addAction(action)
+//
+//            present(alert, animated: true, completion: nil)
+//            return
+//        } else {
             gradeAndWeightStorage.remove(at: numberToBeDeleted)
             gpaCalculation(gradeAndWeightStorage)
             printClassAndGrade(gradeAndWeightStorage)
-        }
+   //     }
     }
     
     //prints what is on the chalkboard
@@ -232,6 +263,20 @@ class ViewController: UIViewController {
         } else {
             return 0
         }
+    }
+    
+    func checkTitle(_ array: [GradeWithWeight],_ title: String) -> Bool{
+        for item in array {
+            if title == item.courseTitle{
+                let alert = UIAlertController(title: "Error", message: "Course Title already taken", preferredStyle: .alert)
+                let action = UIAlertAction(title:"Cancel", style: .cancel, handler: nil)
+                alert.addAction(action)
+                    
+                present(alert, animated: true, completion: nil)
+            return false
+            }
+        }
+        return true
     }
     
     //calculates gpa
